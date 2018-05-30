@@ -21,7 +21,7 @@
 
 Add the bot via QR code or click the button below
 
-![theme_image](https://raw.githubusercontent.com/silent94/linebot_python/master/img/qrcode.JPG)
+![qrcode](https://raw.githubusercontent.com/silent94/linebot_python/master/img/qrcode.JPG)
 
 <a href="https://line.me/R/ti/p/%40gom5285b"><img height="36" border="0" alt="加入好友" src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png"></a>
 
@@ -30,7 +30,7 @@ Add the bot via QR code or click the button below
 
  * 選單裡面有四個主要功能，如下圖：
 
-![funtion_menu](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function1.JPG)
+![funtion_menu](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function_menu.JPG)
 
 <br>
 
@@ -40,7 +40,7 @@ Add the bot via QR code or click the button below
 
 結果圖：
 
-![funtion1](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function2.JPG)
+![funtion1](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function1.JPG)
 
 <br>
 
@@ -50,7 +50,7 @@ Add the bot via QR code or click the button below
 
 結果圖：
 
-![function2](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function4.JPG)
+![function2](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function2.JPG)
 
 <br>
 
@@ -70,4 +70,4 @@ Add the bot via QR code or click the button below
 
 結果圖：
 
-![function4](https://raw.githubusercontent.com/silent94/linebot_python/master/img/buyticket.JPG)
+![function4](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function4.JPG)
