@@ -31,7 +31,8 @@ Add the bot via QR code or click the button below
 ![funtion_menu](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function1.JPG)
 
 <br>
-### < 功能1 >  :  查詢 TOP 5 熱門電影
+
+###  [ 功能1 ]  :  查詢 TOP 5 熱門電影
 
 方法 ： 開啓 Line 下方“功能”選單，點選左上角的圖
 
@@ -40,7 +41,8 @@ Add the bot via QR code or click the button below
 ![funtion1](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function2.JPG)
 
 <br>
-### < 功能2 > :  查詢上映的電影
+
+###  [ 功能2 ] :  查詢上映的電影
 
 方法 ： 開啓 Line 下方“功能”選單，點選左下角的圖
 
@@ -49,7 +51,8 @@ Add the bot via QR code or click the button below
 ![function2](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function4.JPG)
 
 <br>
-### < 功能3 > :  查詢不同地區的電影時刻表
+
+###  [ 功能3 ] :  查詢不同地區的電影時刻表
 
 方法 ： 開啓 Line 下方“功能”選單，點選右下角的圖，再輸入電影名稱或是在“找電影”功能内對應的電影編號。
 
@@ -58,7 +61,8 @@ Add the bot via QR code or click the button below
 ![function3](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function3.JPG)
 
 <br>
-### < 功能4 > :  進行線上訂票
+
+###  [ 功能4 ] :  進行線上訂票
 
 方法 ： 開啓 Line 下方“功能”選單，點選右上角的圖
 
