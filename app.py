@@ -15,8 +15,8 @@ import multiprocessing as mp
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi('TSdt7xVHOsaQ9xLsn3NUaUU84GUwBKeDldXIctHmw4iM21e2qUHNwaITFknq0XwmauESI9GHbkteNU8RKNps1q4f0wjzIWD8M+amNTr8eRSC9SbiKLdt2enQH5bEbNZaGLk1rPeBKlhGcf7yVqk7wQdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('0b689d022e7fa2a37a598a6ad68dcd50')
+line_bot_api = LineBotApi('Your Channel access token ')
+handler = WebhookHandler('YOUR_CHANNEL_SECRET')
 
 find_flag = 0
 
@@ -202,4 +202,5 @@ def handle_message(event):
 			TextSendMessage(text = msg))
 
 if __name__ == "__main__":
-	app.run(debug=True,port=8777)
+	app.run()
+	#app.run(debug=True,port=)
