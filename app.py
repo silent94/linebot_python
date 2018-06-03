@@ -69,11 +69,15 @@ def check_movie_timetable(crawl_url):
 	html = requests.get(crawl_url)
 	soup = BeautifulSoup(html.text, "lxml")
 	search = soup.select('.movie_theater option')
-	del search[0]
-	for l in search:
-		content += '{}. {}\n{}\n'.format(count, re.sub("[\r\n\t']", '', l.text.strip()),\
-		 			base_url + l['value'])
-		count += 1
+	if len(search) > 0:
+		del search[0]
+		for l in search:
+			content += '{}. {}\n{}\n'.format(count, re.sub("[\r\n\t']", '', l.text.strip()),\
+			 			base_url + l['value'])
+			count += 1
+	else:
+		content += "此電影已經不再全臺的電影院播出了！\n \
+		可以再重新找找別的電影喲！\n"
 	return content
 
 def get_movie_list():
