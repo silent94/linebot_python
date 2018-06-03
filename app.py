@@ -76,7 +76,7 @@ def check_movie_timetable(crawl_url):
 			 			base_url + l['value'])
 			count += 1
 	else:
-		content += "此電影已經不再全臺的電影院播出了！\n \
+		content += "此電影已經不再全臺的電影院播出了！\n\
 		可以再重新找找別的電影喲！\n"
 	return content
 
