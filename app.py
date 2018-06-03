@@ -104,29 +104,8 @@ def handle_message(event):
 	global find_flag
 	content_msg = ''
 	movie_names, movie_urls = get_movie_list()
-	if find_flag == 1:
-		if event.message.text.isdigit():
-			if ( int(event.message.text) > 20 or int(event.message.text) < 0 ):
-				result = -1
-			else:
-				result = int(event.message.text)
-		else:
-			result = check_movie_existance(movie_names, event.message.text)
 
-		if result == -1:
-			content_msg = "無法找到影片\n"+\
-							"請重新點選功能選單內的找時刻\n"+\
-							"再輸入正確電影名字 或 對應電影的數字\n"
-			line_bot_api.push_message(event.source.user_id, TextSendMessage(text = content_msg))
-		else:
-			print ("result = ", result)
-			content_msg = check_movie_timetable(movie_urls[result])
-			msg = "這是 {} 在不同地區的時刻表 : \n".format(movie_names[result]) +\
-					content_msg
-			line_bot_api.push_message(event.source.user_id, TextSendMessage(text = msg))
-		find_flag = 0
-
-	elif event.message.text == "[服務]找電影":
+	if event.message.text == "[服務]找電影":
 		movie_names, movie_urls = get_movie_list()
 		content_msg = set_up_message(movie_names, movie_urls)
 		line_bot_api.push_message(event.source.user_id, TextSendMessage(text = content_msg))
@@ -194,6 +173,27 @@ def handle_message(event):
 
 		line_bot_api.push_message(event.source.user_id, message)
 		#line_bot_api.reply_message(event.reply_token,message)
+
+	elif find_flag == 1:
+		if event.message.text.isdigit():
+			if ( int(event.message.text) > 20 or int(event.message.text) < 0 ):
+				result = -1
+			else:
+				result = int(event.message.text) - 1
+		else:
+			result = check_movie_existance(movie_names, event.message.text)
+
+		if result == -1:
+			content_msg = "無法找到影片\n"+\
+							"請重新點選功能選單內的找時刻\n"+\
+							"再輸入正確電影名字 或 對應電影的數字\n"
+			line_bot_api.push_message(event.source.user_id, TextSendMessage(text = content_msg))
+		else:
+			content_msg = check_movie_timetable(movie_urls[result])
+			msg = "這是 {} 在不同地區的時刻表 : \n".format(movie_names[result]) +\
+					content_msg
+			line_bot_api.push_message(event.source.user_id, TextSendMessage(text = msg))
+		find_flag = 0
 
 	else :
 		msg = "請重新輸入"
