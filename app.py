@@ -17,8 +17,8 @@ app = Flask(__name__)
 
 line_bot_api = LineBotApi('Your Channel access token ')
 handler = WebhookHandler('YOUR_CHANNEL_SECRET')
-
 find_flag = 0
+conn = None
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -30,6 +30,17 @@ def callback():
 	except InvalidSignatureError:
 		abort(400)
 	return 'OK'
+
+"""
+TABLE EVENT
+	SORT_ID        INT         PRIMARY KEY     NOT NULL,
+    EVENT_DATE     TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    USER_NAME      CHAR(20)    NOT NULL
+"""
+def connect_db():
+	global conn
+	conn = psycopg2.connect(database="linebotdb", user="", password="", host="127.0.0.1", port="5432")
+	print ("Opened database successfully")
 
 def get_picture_job(url):
 	html = requests.get(url)
@@ -114,6 +125,11 @@ def handle_message(event):
 		content_msg = set_up_message(movie_names, movie_urls)
 		line_bot_api.push_message(event.source.user_id, TextSendMessage(text = content_msg))
 		#line_bot_api.reply_message(event.reply_token, TextSendMessage(text = content_msg))
+		profile = line_bot_api.get_profile(event.source.user_id)
+		comment = 'INSERT INTO EVENT (SORT_ID, USER_NAME) VALUES (1, \'{}\')'.format(profile.display_name)
+		cur = conn.cursor()
+		cur.execute(comment);
+		conn.commit()
 
 	elif event.message.text == "[服務]找時刻":
 		msg = "你想看什麼電影呢？\n" +\
@@ -126,6 +142,11 @@ def handle_message(event):
 		line_bot_api.reply_message(
 			event.reply_token,
 			TextSendMessage(text = msg))
+		profile = line_bot_api.get_profile(event.source.user_id)
+		comment = 'INSERT INTO EVENT (SORT_ID, USER_NAME) VALUES (2, \'{}\')'.format(profile.display_name)
+		cur = conn.cursor()
+		cur.execute(comment);
+		conn.commit()
 
 	elif event.message.text == "[服務]TOP 5 影片":
 		movie_urls_pic = get_movie_for_pic()
@@ -177,6 +198,11 @@ def handle_message(event):
 
 		line_bot_api.push_message(event.source.user_id, message)
 		#line_bot_api.reply_message(event.reply_token,message)
+		profile = line_bot_api.get_profile(event.source.user_id)
+		comment = 'INSERT INTO EVENT (SORT_ID, USER_NAME) VALUES (3, \'{}\')'.format(profile.display_name)
+		cur = conn.cursor()
+		cur.execute(comment);
+		conn.commit()
 
 	elif find_flag == 1:
 		if event.message.text.isdigit():
@@ -206,5 +232,6 @@ def handle_message(event):
 			TextSendMessage(text = msg))
 
 if __name__ == "__main__":
+	connect_db()
 	app.run()
 	#app.run(debug=True,port=)

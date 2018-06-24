@@ -73,3 +73,7 @@ LINE ID : @gom5285b
 結果圖：
 
 ![function4](https://raw.githubusercontent.com/silent94/linebot_python/master/img/function4.JPG)
+
+### 作者資訊
+姓名   ： 梁洪祥 <br>
+EMAIL ： silent.07011@gmail.com
