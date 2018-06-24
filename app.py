@@ -33,7 +33,7 @@ def callback():
 
 """
 TABLE EVENT
-	SORT_ID        INT         PRIMARY KEY     NOT NULL,
+    SORT_ID        INT         PRIMARY KEY     NOT NULL,
     EVENT_DATE     TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
     USER_NAME      CHAR(20)    NOT NULL
 """
