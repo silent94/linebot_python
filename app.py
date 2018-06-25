@@ -12,6 +12,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 import multiprocessing as mp
+import psycopg2
 
 app = Flask(__name__)
 
